@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="msg" bindtap="onChat">
+    <view class="iconfont icon-bell"></view>
+    <text class="unread">你有{{unread>99?'99+':unread}}条未读消息</text>
+  
+  </view>
+  <image class="top-pic" src="../../images/暨大1.jpg" mode=""/>
+
+  <van-grid column-num="4">
+    <van-grid-item text="座位预约" bindtap="onseat" style="color: rgb(226, 76, 76);">
+        <view slot="icon" class="iconfont icon-yyjl"></view>
+      </van-grid-item>
+      <van-grid-item text="一键抢座" bindtap="showPopup"
+      style="color: rgb(233, 77, 30);">
+        <view slot="icon" class="iconfont icon-zuowei"></view>
+      </van-grid-item>
+
+      <van-grid-item text="打卡签到" style="color: seagreen;">
+        <view slot="icon" class="iconfont icon-daka" bindtap="onCheckin"></view>
+      </van-grid-item>
+      <van-grid-item text="预约记录" bindtap="onRecord" style="color: steelblue;">
+        <view slot="icon" class="iconfont icon-shouye"></view>
+      </van-grid-item>
+      <van-grid-item text="新闻公告" style="color: orange;">
+        <view slot="icon" class="iconfont icon-gonggao1"></view>
+      </van-grid-item>
+      <van-grid-item text="积分商城" bindtap="onShopping" style="color: rgb(184, 95, 36);">
+        <view slot="icon" class="iconfont icon-shangcheng"></view>
+      </van-grid-item>
+      <van-grid-item text="排行榜" style="color: purple;">
+        <view slot="icon" class="iconfont icon-paihangbang"></view>
+      </van-grid-item>
+      <van-grid-item text="违规记录" bindtap="onBreak" style="color: rgb(230, 169, 187);">
+        <view slot="icon" class="iconfont icon-weiguitongzhi"></view>
+      </van-grid-item>
+  </van-grid>
+  <view class="tzgg">
+      <van-icon name="volume-o" class="left-icon"/>
+      <view class="tzgg-content">
+        <text class="tzgg-text">滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。</text>
+      </view>
+      <van-icon name="arrow" class="right-icon"/>
+  </view> 
+  <view class="order-container" wx:if="{{isorder}}">
+    <view class="order">
+        <text class="checkin" wx:if="{{order.state==0}}">未签到</text>
+        <text class="checkin" wx:elif="{{order.state==1}}">已签到</text>
+        <text class="checkin" wx:elif="{{order.state==2}}">暂时离开</text>
+        <text>{{order.name+' '+order.xaxis+"行"+order.yaxis+"列"}}</text>
+        <wxs src="/utils/format.wxs" module="filter"/>
+        <text>{{filter.formatDate(order.subscribeTime,order.timeCode)}}</text>
+    </view>
+    <view class="card">
+      <view class="left-card">
+        <text wx:if="{{order.state==0}}" bindtap="onCheckin">签到</text>
+        <text wx:elif="{{order.state==1}}" bindtap="onLeave">暂离</text>
+        <text wx:elif="{{order.state==2}}" bindtap="onCheckin">回座签到</text>
+      </view>
+      <view class="right-card">
+        <text bindtap="onCheckout">退座</text>
+      </view>
+    </view>
+  </view>
+  <view class="order-container" wx:else>
+    <view class="order">
+      <text style="color: skyblue;">你还没有预约座位，快去预约吧</text>
+    </view>
+    <view class="card">
+      <view class="left-card">
+        <text bindtap="onseat">选择座位</text>
+      </view>
+      <view class="right-card">
+        <text bindtap="autoOrder" bindtap="showPopup">一键抢座</text>
+      </view>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" round="true">
+  <view class="confirm" wx:if="{{show}}">
+    <text class="cancel" bindtap="onClose">取消</text>    
+    <text class="sure" bindtap="onSure">确定</text>    
+  </view>
+  <van-tree-select
+      items="{{ items }}"
+      main-active-index="{{ mainActiveIndex }}"
+      active-id="{{ activeId }}"
+      bind:click-nav="onClickNav"
+      bind:click-item="onClickItem"
+      
+    />
+</van-popup>

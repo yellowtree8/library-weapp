@@ -1,0 +1,24 @@
+<!--pages/record/record.wxml-->
+<view class="record-container">
+  <view class="top">
+    <view class="dian">
+    </view>
+    <text>预约记录</text>
+  </view>
+  <van-cell-group>
+    <van-cell wx:if="{{order.length==0}}" title="你还没有预约记录，快去预约吧" border="{{ true }}" />
+  <van-cell wx:for="{{order}}" use-label-slot border="{{ true }}" >
+    <view slot="title">
+    <text>{{item.name+" "+item.xaxis+"行"+item.yaxis+"列"}}</text>
+    <text class="status" wx:if="{{item.status==1}}">已过期</text>
+    <text class="status" wx:else style="background-color: rgb(117, 223, 117);">预约中</text>
+    </view>
+    <wxs src="/utils/format.wxs" module="filter"/>
+    <text slot="label">{{filter.formatDate(item.subscribeTime,item.timeCode)}}</text>
+    <view class="value" slot="">
+      <button class="del-btn" data-orderId="{{item.orderId}}" bindtap="onCheckout">{{item.status==1?"删除":"退座"}}</button>
+    </view>
+  </van-cell>
+</van-cell-group>
+
+</view>

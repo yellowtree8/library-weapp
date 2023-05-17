@@ -1,0 +1,47 @@
+<view class="seat-container">
+  <view class="center">
+    <view class="grid">
+      <text>阅览室</text>
+      <view>
+        {{lc+" "+name}}
+      </view>
+    </view>
+      <view class="grid">
+        <text>座位坐标</text>
+        <view>
+          {{xAxis+"行"+yAxis+"列"}}
+        </view>
+      </view>
+      <view class="grid">
+        <text>座位状态</text>
+        <view wx:if="{{!seatuser}}">
+          空闲
+        </view>
+        <view wx:if="{{seatuser.status==0}}">
+          未签到
+        </view>
+        <view wx:elif="{{seatuser.status==1}}">
+          已签到
+        </view>
+        <view wx:elif="{{seatuser.status==2}}">
+          暂离
+        </view>
+      </view>
+      <view class="grid">
+        <text>预约人</text>
+        <view class="people">
+          {{seatuser?seatuser.nickName:''}}
+          <view class="iconfont icon-chat chat" bindtap="onChat">
+          </view>
+        </view>
+
+      </view>
+      <view class="grid">
+        <wxs src="/utils/format.wxs" module="filter"/>
+        <text>已学习时长</text>
+        <view>
+          {{filter.formatStamp(learn_time.cur)}}
+        </view>
+      </view>
+    </view>
+  </view>

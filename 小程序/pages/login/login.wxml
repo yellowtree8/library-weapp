@@ -1,0 +1,15 @@
+<!-- 登录页面 -->
+<view class="login-page">
+  <view class="login-container">
+    <view class="acount">
+      <text>学号</text>
+      <input value="{{number}}" class="xuehao-ipt" type="text" bindinput="numberInput"/>
+    </view>
+    <view class="password">
+      <text>密码</text>
+      <input class="password-ipt" value="{{password}}" type="text" password="{{eye}}" bindinput="passwordInput"/>
+      <van-icon bind:click="oneye" name="{{eye?'eye-o':'closed-eye'}}" />
+    </view>
+    <button type="bog" class="login-btn" bindtap="onLogin">登录</button>
+  </view>
+</view>

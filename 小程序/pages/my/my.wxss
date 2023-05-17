@@ -1,0 +1,45 @@
+/* pages/my/my.wxss */
+.user-info{
+  background-color: rgb(229, 229, 229);
+  height: 400rpx;
+  width: 750rpx;
+}
+.user-pic{
+  padding-top: 20rpx;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-name{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 45rpx;
+}
+.user-learn{
+  height: 140rpx;
+  display: flex;
+}
+.user-learn .grid-item{
+  width: 250rpx;
+  height: 120rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.learn-time{
+  font-size: 25rpx;
+}
+.learn-item{
+  font-size: 30rpx;
+  color: rgb(150,150,150);
+}
+
+.login-btn{
+  width: 300rpx;
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+}

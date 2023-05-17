@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 显示聊天记录 -->
+  <scroll-view scroll-y="true" class="scroll-view" scroll-into-view="{{toView}}" >
+    <view wx:for="{{chatLog}}" class="chat-item" id="{{'chatLog-'+index}}">
+      <wxs src="/utils/format.wxs" module="filter"/>
+      <view style="width: 750rpx;" class="time">
+        <text wx:if="{{item.secret}}" style="padding-bottom: 10rpx;">        {{filter.formatDate1(item.createTime)}}</text>
+      </view>
+      <view class="{{item.sendId==otherId?'left-word':'right-word'}}">
+        <image src="{{item.sendId==otherId?otherPic:userinfo.headPic}}" mode="aspectFill" class="avatar" />
+
+        <view class="message">{{item.msg}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 输入框和发送按钮 -->
+  <view class="input-box">
+    <input placeholder="请输入聊天内容" bindinput="onInput" value="{{inputValue}}" />
+    <button bindtap="onSend">发送</button>
+  </view>
+</view>

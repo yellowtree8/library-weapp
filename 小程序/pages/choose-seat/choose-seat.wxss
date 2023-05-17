@@ -1,0 +1,9 @@
+/* pages/choose-seat/choose-seat.wxss */
+.van-dropdown-menu__item{
+  width: 740rpx;
+}
+.dropdown-title,.dropdown-item{
+  height: 60rpx;
+  line-height: 70rpx;
+  background-color: yellow;
+}

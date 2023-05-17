@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/subscribe/subscribe",
+    "pages/choose-seat/choose-seat",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/record/record",
+    "pages/shopping/shopping",
+    "pages/mycard/mycard",
+    "pages/break/break",
+    "pages/checkin/checkin",
+    "pages/msg/msg",
+    "pages/talk/talk",
+    "pages/userinfo/userinfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#abc",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/首页.png"
+      },
+      {
+        "pagePath": "pages/choose-seat/choose-seat",
+        "text": "座位",
+        "iconPath": "/images/座位.png"
+      },
+
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/我的.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-card": "@vant/weapp/card/index"
+  }
+}

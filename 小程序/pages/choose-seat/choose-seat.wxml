@@ -1,0 +1,30 @@
+<!-- 座位选择页面 -->
+<van-dropdown-menu>
+  <van-dropdown-item title="楼层选择" value="{{ value1 }}" options="{{ option1 }}" bind:change="onChange" />   
+  <van-dropdown-item id="timemenu" title="{{title}}" >
+    <van-tree-select
+      items="{{ items }}"
+      main-active-index="{{ mainActiveIndex }}"
+      active-id="{{ activeId }}"
+      bind:click-nav="onClickNav"
+      bind:click-item="onClickItem"
+      bindtap="onConfirm"
+    />
+
+  </van-dropdown-item>
+</van-dropdown-menu>
+<view class="place"> 
+  <van-cell-group>
+  <van-cell wx:for="{{place}}" data-index="{{item.id}}" data-name="{{item.name}}" value="剩余： {{item.rest}}" title="{{item.name}}" bind:click ="onJump" use-label-slot>
+    <view slot="label">
+      <van-icon name="location" color="skyblue" />
+      {{active.text}}
+    </view>
+  </van-cell>
+</van-cell-group>
+</view>
+
+<!-- 弹出层 -->
+
+  <!-- <myPopup wx:if="{{show}}" show="{{show}}" louceng="{{active}}" place="{{placetaped.text}}"></myPopup> -->
+

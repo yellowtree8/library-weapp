@@ -1,0 +1,15 @@
+/* pages/mycard/mycard.wxss */
+.card-pic{
+  width: 100rpx;height: 100rpx;
+  padding-right: 20rpx;
+}
+.use-btn{
+  width: 120rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  margin-left: 150rpx;
+  line-height: 60rpx;
+  background-color: pink;
+  font-size: 28rpx;
+  
+}

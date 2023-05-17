@@ -1,0 +1,56 @@
+/* pages/subscribe/subscribe.wxss */
+
+@import '../../fonts/iconfont.wxss';
+.seat-container{
+  height: 900rpx;
+  /* background-color: gray; */
+  border-top: 5rpx solid gray;
+  border-left: 5rpx solid gray;
+  border-bottom: 5rpx solid gray;
+  overflow: scroll;
+  padding: 20rpx;
+  margin: 10rpx;
+}
+.status{
+  display: flex;
+  justify-content: space-around;
+  height: 80rpx;
+  /* background-color: red; */
+  /* border: 1rpx solid black; */
+}
+.status-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seat-row{
+  display: flex;
+  /* flex-grow: 0; */
+  position: relative;
+  /* flex-wrap: wrap; */
+}
+.seat-lie{
+  /* background-color: greenyellow; */
+  flex-shrink: 0;
+  /* border: 1rpx solid red; */
+  width: 100rpx;
+  height: 70rpx;
+  /* font-size: 40rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-zuoweibeijing{
+    font-size: 40rpx;
+}
+
+
+.zuowei{
+  position: relative;
+}
+.zuowei text{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

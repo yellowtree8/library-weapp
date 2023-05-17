@@ -1,0 +1,26 @@
+<!--pages/record/record.wxml-->
+<view class="record-container">
+  <view class="top">
+    <view class="dian">
+    </view>
+    <text>聊天列表</text>
+  </view>
+  <van-cell-group>
+    <van-cell wx:if="{{talkList.length==0}}" title="你还没有预约记录，快去预约吧" border="{{ true }}" />
+  <van-cell wx:for="{{talkList}}" use-label-slot border="{{ true }}" center data-nickName="{{item.nickName}}" data-sendid="{{item.sendId}}" data-pic="{{item.pic}}" bindtap="onChat">
+    <image class="card-pic" src="{{item.pic}}" slot="icon"  mode="" />
+    <view slot="title">
+    <text>{{item.nickName}}</text>
+    </view>
+    <wxs src="/utils/format.wxs" module="filter"/>
+    <view slot="" class="right">
+      <text style="font-size: 24rpx;">{{filter.formatDate1(item.createTime)}}</text>
+      <view class="unread" wx:if="{{item.unread!=0}}">
+        {{item.unread>99?"99+":item.unread}}
+      </view>
+    </view>
+    <text slot="label">{{item.msg}}</text>
+  </van-cell>
+</van-cell-group>
+
+</view>

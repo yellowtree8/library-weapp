@@ -1,0 +1,170 @@
+/**index.wxss**/
+@import '../../fonts/iconfont.wxss';
+
+.container{
+  height: 100vh;
+  padding: 0 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.msg{
+  height: 80rpx;
+  width: 700rpx;
+  line-height: 80rpx;
+  position: relative;
+  color: rgb(155, 106, 106);
+}
+.msg .unread{
+  padding: 0 20rpx;
+  height: 50rpx;
+  float: right;
+  margin-right: 10rpx;
+  border: 1rpx solid gray;
+  border-radius: 20rpx;
+  transform: translateY(10rpx);
+  line-height: 50rpx;
+}
+
+.msg .icon-bell{
+  float: right;
+  font-size: 40rpx;
+
+}
+.top-pic{
+  width: 700rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+}
+.iconfont{
+  font-size: 40rpx;
+}
+.tzgg{
+  width: 700rpx;
+  box-sizing: border-box;
+  border-top: solid black 1rpx;
+  border-bottom: solid black 1rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+  padding: 0 40rpx;
+}
+.tzgg-content{
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 50rpx;
+
+}
+@keyframes textplay{
+  0%{
+    left: 0;
+    /* transform: translateX(0); */
+  }
+  10%{
+    left: 0;
+    /* transform: translateX(0); */
+  }
+  90%{
+    left: -100%;
+    /* transform: translateX(-100%); */
+  }
+  100%{
+    left: -100%;
+    /* transform: translateX(-100%); */
+  }
+}
+.tzgg-text{
+  white-space: nowrap;
+  max-width: 100%;
+  position: absolute;
+  /* left: -100%; */
+  animation: textplay linear 4s alternate infinite;
+}
+.left-icon{
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+}
+.right-icon{
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+}
+.order-container{
+  width: 700rpx;
+  height: 300rpx;
+  margin-top: 15rpx;
+  border: 1rpx solid gray;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  /* padding: 20rpx; */
+}
+.order{
+  width: 700rpx;
+  height: 220rpx;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.checkin{
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.right{
+
+  width: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.out-btn{
+  width: 150rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background-color: rgb(76, 197, 245);
+}
+.card{
+  width: 700rpx;
+  height: 80rpx;
+  border-top: 1rpx solid rgb(220, 220, 220);
+  /* background-color: yellow; */
+  display: flex;
+  /* justify-content: center; */
+}
+.left-card{
+  width: 350rpx;
+  height: 80rpx;
+  border-right: 1rpx solid rgb(220,220,220) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-card{
+  width: 350rpx;
+  height: 80rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirm{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border: 1rpx solid rgb(200, 200, 200);
+}
+.confirm .cancel{
+  color: red;
+}
+.confirm .sure{
+  float: right;
+  color: rgb(23, 197, 110);
+}

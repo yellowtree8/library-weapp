@@ -1,0 +1,41 @@
+<!--pages/shopping/shopping.wxml-->
+<view class="shop-container">
+  <view class="card">
+    <view class="left">
+      <view>
+        <text>{{credit}}积分</text>
+        <van-icon name="arrow" />
+      </view>      
+      <view>
+        查看积分明细
+      </view>
+    </view>
+    <view class="right">
+      <view class="right-btn">
+        获取积分
+      </view>
+    </view>
+  </view>
+  <view class="nav">
+    <text class="left-nav">道具兑换</text>
+    <navigator class="right-nav" url="/pages/mycard/mycard">我的道具</navigator>
+  </view>
+ 
+  <view class="card-group">
+    <van-card
+      thumb-class="card-pic"
+      wx:for="{{cardList}}"
+      price="{{item.cost+'积分'}}"
+      desc="{{item.disc}}"
+      title="{{item.name}}" 
+      currency=""
+      data-id="{{item.id}}" 
+      data-title="{{item.name}}"
+      data-cost = "{{item.cost}}"
+      bindtap="onBuy"
+    >
+    <image src="/images/card.webp" mode="" class="card-pic" slot="thumb" />
+    </van-card>
+  </view>
+
+</view>

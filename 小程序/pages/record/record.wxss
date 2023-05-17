@@ -1,0 +1,40 @@
+/* pages/record/record.wxss */
+.top{
+  height: 70rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid rgb(200, 200, 200);
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.dian{
+  background-color: pink;
+  height: 10rpx;
+  width: 10rpx;
+  border-radius: 5rpx;
+  margin: 0 20rpx;
+}
+.status{
+  background-color: skyblue;
+  border-radius: 10rpx;
+  padding: 3rpx 10rpx;
+  height: 20rpx;
+  font-size: 20rpx;
+  margin-left: 20rpx;
+}
+.value{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.del-btn{
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  background-color: skyblue;
+  margin-right: 20rpx;
+  border-radius: 30rpx;
+}

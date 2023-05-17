@@ -1,0 +1,32 @@
+<!--pages/subscribe/subscribe.wxml-->
+<van-cell class="seat-info" use-label-slot border="{{ true }}">
+  <text slot="title">{{lc+" "+option.name}}</text>
+  <!-- <text slot="label" style="color: rgb(62, 193, 245);" decode="true">{{date+" "+duration[timearr[0]].value+"-"+duration[timearr[1]].value}}</text> -->
+  <!-- <button size="mini" type="primary">修改时间</button> -->
+</van-cell>
+<view class="status">
+  <view class="status-container">
+    <view class="iconfont icon-zuoweibeijing" style="color: red;padding-right: 10rpx;font-size: 40rpx;">
+    </view>
+    <text>有人</text>
+  </view>
+  <view class="status-container">
+    <view class="iconfont icon-zuoweibeijing" style="color: rgb(102, 233, 102);padding-right: 10rpx;font-size: 40rpx;">
+    </view>
+    <text>可选</text>
+  </view>
+</view>
+
+<view class="seat-container">
+  <view class="seat-row" wx:for="{{seat}}" wx:for-item="row" wx:for-index="rowindex"  wx:key="rowindex" style="padding-bottom: {{rowindex%2==0?'20rpx':''}};">
+    <view class="seat-lie" wx:for="{{row}}" wx:for-item="lie" wx:for-index="lieindex" wx:key="lieindex" style="color: {{lie.status==1?'rgb(102, 233, 102)':'red'}};padding-right: {{rowindex!=0&&lieindex%2==1?'40rpx':''}};width: {{rowindex!=0?'80rpx':'100rpx'}};"> 
+      <view class="iconfont icon-zuoweibeijing zuowei" bindtap="onSeat" data-seatid="{{lie.id}}" data-xaxis="{{lie.xaxis}}" data-yaxis="{{lie.yaxis}}">
+        <text style="font-size: 20rpx;color: black;">{{lie.id-firstid+1}}</text>
+      </view> 
+    </view>
+  </view>
+
+</view>
+
+
+

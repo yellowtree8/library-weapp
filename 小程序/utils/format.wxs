@@ -1,0 +1,97 @@
+function formatTime(timestamp){
+  var date = getDate(timestamp)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  return year+"-"+formatNumber(month)+"-"+formatNumber(day)+"  "+formatNumber(hour)+":"+formatNumber(minute)
+
+}
+function formatDate1(date1){
+  var timestamp = Date.parse(date1)
+  var date = getDate(timestamp)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var currentDay = getDate()
+  if(year!=currentDay.getFullYear()){
+    return year+"-"+formatNumber(month)+"-"+formatNumber(day)
+  } else if(month!=currentDay.getMonth()+1){
+    return formatNumber(month)+"-"+formatNumber(day)
+  } else if(day!=currentDay.getDate()){
+    if(currentDay.getDate()-day==1){
+      return "昨天"+formatNumber(hour)+":"+formatNumber(minute)
+    }else{
+      return formatNumber(month)+"-"+formatNumber(day)
+    }
+  }
+  else{
+    if(hour>12&&hour<=18){
+      hour = hour-12
+      return "下午"+" "+formatNumber(hour)+":"+formatNumber(minute)
+    }else if(hour==12){
+      return "中午"+" "+formatNumber(hour)+":"+formatNumber(minute)
+    }else if(hour>18){
+      return "晚上"+" "+formatNumber(hour)+":"+formatNumber(minute)
+    }
+    else if(hour>=6&&hour<12){
+      return "上午"+" "+formatNumber(hour)+":"+formatNumber(minute)
+    } else{
+      return "深夜"+" "+formatNumber(hour)+":"+formatNumber(minute)
+    }
+  } 
+}
+
+function formatStamp(timestamp){
+  if(timestamp==null||isNaN(timestamp)){
+    return "0小时0分钟"
+  }
+  var time = (timestamp/1000)/60
+  if(time<=0){
+    return "0小时0分钟"
+  }
+  return Math.floor(time/60)+"小时"+Math.floor(time%60)+"分钟"
+}
+
+function formatDate(date,timecode){
+  var timestamp = Date.parse(date)
+  var date = getDate(timestamp)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = timecode==1?" 上午":" 下午"
+  return year+"-"+formatNumber(month)+"-"+formatNumber(day)
++' '+hour
+}
+function formatTime1(datestr){
+  var date = getDate(datestr)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  return year+"-"+formatNumber(month)+"-"+formatNumber(day)+"  "+formatNumber(hour)+":"+formatNumber(minute)
+
+}
+
+function formatNumber (num){
+  var num = num+""
+  if(num.length<=1){
+    return "0"+num
+  }else
+  return num
+}
+
+
+
+module.exports = {
+  formatTime: formatTime,
+  formatDate: formatDate,
+  formatTime1: formatTime1,
+  formatDate1: formatDate1,
+  formatStamp: formatStamp
+}
+

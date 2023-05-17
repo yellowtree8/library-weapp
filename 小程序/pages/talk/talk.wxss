@@ -1,0 +1,40 @@
+/* pages/record/record.wxss */
+.top{
+  height: 70rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid rgb(200, 200, 200);
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.dian{
+  background-color: pink;
+  height: 10rpx;
+  width: 10rpx;
+  border-radius: 5rpx;
+  margin: 0 20rpx;
+}
+
+.right{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.card-pic{
+  width: 70rpx;height: 70rpx;
+  padding-right: 20rpx;
+}
+.unread{
+  background-color: rgb(233, 109, 109);
+  width: 50rpx;
+  height: 30rpx;
+  border-radius: 20rpx;
+  color: black;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 20rpx;
+}

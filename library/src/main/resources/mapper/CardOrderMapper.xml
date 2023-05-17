@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.library.mapper.CardOrderMapper">
+    <select id="cardnum" resultType="com.example.library.entity.CardNum">
+        SELECT `id`,`name`,`cost`,`disc`,IFNULL(`co`,0) AS `count`
+        FROM card LEFT JOIN (SELECT tool_id,COUNT(tool_id) AS `co`
+                             FROM  card_order
+                             WHERE `status`=#{status}
+                               AND student_id = #{student_id}
+                             GROUP BY tool_id) AS num
+                            ON card.id=num.tool_id
+
+    </select>
+
+    <select id="usedcard" resultType="com.example.library.entity.UsedCard">
+        SELECT num.`id`,`name`,cost,disc,num.`tool_id`,num.`create_time`,num.`update_time`,num.`student_id`,num.`status`
+        FROM card RIGHT JOIN (SELECT *
+                              FROM  card_order
+                              WHERE `status`=-1
+                                AND student_id = #{student_id}
+        ) AS num
+                             ON card.id=num.tool_id
+    </select>
+
+</mapper>

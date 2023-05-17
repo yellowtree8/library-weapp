@@ -1,0 +1,20 @@
+<!-- 公告板块 -->
+<view class="msg-container">
+  <view class="msg-item" wx:for="{{msgList}}" bindtap="onDetail" data-id="{{item._id}}">
+    <view class="left-content">
+      <view class="msg-title">
+        {{item.msgtitle}}
+      </view>
+      <view class="three-photo" wx:if="{{item.msgphoto.length>1}}">
+        <image src="{{photo}}" mode="" wx:for="{{item.msgphoto}}" wx:for-item="photo" wx:for-index="p-id"/> 
+      </view> 
+      <wxs src="../../utils/format.wxs" module="filter"/>
+      <view class="msg-time">
+        {{filter.formatTime1(item.updateTime)}} 
+      </view>
+    </view>
+    <view class="msg-photo" wx:if="{{item.msgphoto.length===1}}">
+      <image src="{{item.msgphoto[0]}}" mode=""/>
+    </view>
+  </view>
+</view>

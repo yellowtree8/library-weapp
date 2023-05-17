@@ -1,0 +1,43 @@
+<!-- 用户信息 -->
+<view class="user-info">
+  <view class="user-pic">
+    <van-image
+    round
+    width="160rpx"
+    height="160rpx"
+    src="{{islogin?info.headPic:'/images/头像男孩.png'}}"
+    fill="cover"
+  />
+  </view>
+  <view class="user-name">
+    <text>{{islogin?info.nickName:'未登录'}}</text>
+    
+  </view>
+  <view class="user-learn">
+    <wxs src="/utils/format.wxs" module="filter"/>
+    <view class="grid-item">
+      <text class="learn-time">{{filter.formatStamp(learn_time.day)}}</text>
+      <text class="learn-item">当日学习</text>
+    </view>
+    <view class="grid-item">
+      <text class="learn-time">{{filter.formatStamp(learn_time.week)}}</text>
+      <text class="learn-item">当周学习</text>
+      </view>
+    <view class="grid-item">    
+      <text class="learn-time">{{filter.formatStamp(learn_time.month)}}</text>
+      <text class="learn-item">当月学习</text>
+      </view>
+  </view>
+</view>
+<!-- 用户操作 -->
+<van-cell-group>
+  <van-cell title="个人信息" wx:if="{{islogin}}" bindtap="onUserinfo" />
+  <van-cell title="预约记录" bindtap="onRecord"/>
+  <van-cell title="时长排行榜" />
+  <van-cell title="使用帮助" />
+  <van-cell title="我要留言" />
+  <van-cell title="分享" />
+</van-cell-group>
+
+<button type="primary" class="login-btn" wx:if="{{!islogin}}" bindtap="onLogin">登录</button>
+<button type="primary" class="login-btn" wx:else bindtap="onLogout">退出登录</button>

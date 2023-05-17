@@ -1,0 +1,54 @@
+@import '../../fonts/iconfont.wxss';
+.seat-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(138, 115, 115);
+}
+.center{
+  width: 600rpx;
+  height: 900rpx;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+.grid{
+  width: 500rpx;
+
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid text{
+  color: skyblue;
+  line-height: 100rpx;
+}
+.grid>view{
+  width: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border: 1rpx solid rgb(175, 175, 175);
+  background-color: rgba(172, 165, 165, 0.3);
+  border-radius: 10rpx;
+  color: white;
+}
+.people{
+  position: relative;
+}
+.chat{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  /* background-color: black; */
+  color: skyblue;
+  font-size: 40rpx;
+}

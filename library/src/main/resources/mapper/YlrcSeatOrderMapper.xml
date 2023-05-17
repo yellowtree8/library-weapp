@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.library.mapper.YlrcSeatOrderMapper">
+    <select id="getorder" resultType="com.example.library.entity.UserOrder">
+        SELECT od.`id` as orderId,od.`student_id`,od.`create_time`,od.`update_time`,od.`subscribe_time`,od.time_code,od.state,reading.`name`,od.`seat_id`,seat.`status`,seat.`x_axis`,seat.`y_axis`
+        FROM ylrc_seat_order od INNER JOIN ylrc_seat seat
+                                           ON od.`seat_id`=seat.`id`
+                                JOIN ylrc_reading reading
+                                     ON seat.`reading_room_id`=reading.`id`
+        WHERE od.`student_id`=#{student_id}
+
+    </select>
+    <select id="getbreak" resultType="com.example.library.entity.UserOrder">
+        SELECT od.`id` as orderId,od.`student_id`,od.`create_time`,od.`update_time`,od.`subscribe_time`,od.time_code,od.state,reading.`name`,od.`seat_id`,seat.`status`,seat.`x_axis`,seat.`y_axis`
+        FROM ylrc_seat_order od INNER JOIN ylrc_seat seat
+                                           ON od.`seat_id`=seat.`id`
+                                JOIN ylrc_reading reading
+                                     ON seat.`reading_room_id`=reading.`id`
+        WHERE od.`student_id`=#{student_id}
+    </select>
+</mapper>

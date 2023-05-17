@@ -1,0 +1,12 @@
+<view class="article-container">
+  <view class="art_title">
+    {{myart.msgtitle}}
+  </view>
+  <wxs src="../../utils/format.wxs" module="filter"/>
+  <view class="art_info">
+    {{filter.formatTime(myart._updateTime)}}
+  </view>
+  <view class="art_content">
+    <rich-text class="rich" nodes="{{myart.article}}"/>
+  </view>
+</view>

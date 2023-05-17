@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.library.mapper.YlrcReadingMapper">
+    <select id="getRoom" resultType="com.example.library.entity.Reading">
+        SELECT id,IFNULL(`count`,0) AS rest,create_time,update_time,lie,`row`,`name`,readingtype_id FROM (SELECT reading_room_id AS readingid,COUNT(*) AS `count` FROM ylrc_seat
+                                                                                                          WHERE `status` =1
+                                                                                                          GROUP BY reading_room_id) AS aa RIGHT JOIN ylrc_reading
+                                                                                                                                                     ON aa.readingid = ylrc_reading.id
+        WHERE readingtype_id = #{readingtype_id}
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+.article-container{
+  padding: 10rpx;
+}
+.art_title{
+  /* background-color: yellow; */
+  padding: 30rpx 20rpx;
+  font-size: 40rpx;
+}
+.art_info{
+  padding: 0rpx 20rpx;
+  font-size: 30rpx;
+  text-align: right;
+}
+.art_content{
+  padding: 20rpx 20rpx;
+  
+}

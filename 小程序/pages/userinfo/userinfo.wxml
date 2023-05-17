@@ -1,0 +1,49 @@
+
+<!--pages/break/break.wxml-->
+<!--pages/record/record.wxml-->
+<view class="record-container">
+  <view class="top">
+    <view class="dian">
+    </view>
+    <text>个人信息</text>
+  </view>
+  <van-cell-group>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">头像</text>
+    <image src="{{info.headPic}}" mode="" style="width: 100rpx;height: 100rpx;"/>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">名字</text>
+    <text slot="">{{info.nickName}}</text>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">学号</text>
+    <text slot="">{{info.username}}</text>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">学院</text>
+    <text slot="">{{class.college}}</text>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">专业</text>
+    <text slot="">{{class.major}}</text>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">班级</text>
+    <text slot="">{{class.claname}}</text>
+  </van-cell>
+  <van-cell center  is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">手机号</text>
+    <text slot="">{{info.mobile}}</text>
+  </van-cell>
+  <van-cell center is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">邮箱</text>
+    <text slot="">{{info.email}}</text>
+  </van-cell>
+  <!-- <van-cell center title-width="500rpx" is-link border="{{ true }}" >
+    <text slot="title" style="font-size: 30rpx;">邮箱</text>
+    <text slot="">{{info.email}}</text>
+  </van-cell> -->
+</van-cell-group>
+
+</view>

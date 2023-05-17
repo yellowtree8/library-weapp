@@ -1,0 +1,26 @@
+<!--pages/break/break.wxml-->
+<!--pages/record/record.wxml-->
+<view class="record-container">
+  <view class="top">
+    <view class="dian">
+    </view>
+    <text>违规记录</text>
+  </view>
+  <van-cell-group>
+    <van-cell wx:if="{{breakList.length==0}}" title="你没有违规过，干得漂亮" border="{{ true }}" />
+  <van-cell title-width="500rpx" wx:for="{{breakList}}" use-label-slot border="{{ true }}" >
+    <view slot="title" style="color: rgb(214, 66, 66);">
+      <text wx:if="{{item.status==4}}">一个小时内未签到</text>
+      <text wx:elif="{{item.status==2}}">未入座签到</text>
+      <text wx:elif="{{item.status==3}}">暂离后未返座签到</text>
+    </view>
+    <wxs src="/utils/format.wxs" module="filter"/>
+    <text slot="label">{{filter.formatDate(item.subscribeTime,item.timeCode)}}{{item.name+" "+item.xaxis+"行"+item.yaxis+"列"}}</text>
+    <view class="value" slot="">
+      <button class="del-btn" data-orderId="{{item.orderId}}" bindtap="onDelete">清除</button>
+    </view>
+  </van-cell>
+</van-cell-group>
+
+</view>
+

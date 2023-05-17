@@ -1,0 +1,40 @@
+<!--pages/mycard/mycard.wxml-->
+<view class="mycard-container">
+  <van-tabs active="{{ active }}" bind:change="onChange" line-width="120px">
+  <van-tab title="待使用">
+    <van-cell-group>
+      <van-cell center="true" use-label-slot="true" wx:for="{{ableList}}" wx:key="{{item.id}}">
+        <image class="card-pic" src="/images/card.webp" slot="icon" mode=""/>
+        <view slot="title">
+          {{item.name}}
+          <text style="padding-left: 10rpx;font-size: 24rpx;color: red;">x{{item.count}}</text>
+        </view>
+        <view slot="label">
+          {{item.disc}}
+        </view>
+        <button class="use-btn" slot="">
+          使用
+        </button>
+      </van-cell> 
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="已使用">
+    <van-cell-group>
+      <van-cell center="true" use-label-slot wx:for="{{disableList}}" wx:key="{{item.id}}">
+        <image class="card-pic" src="/images/card.webp" slot="icon" mode="" style="width: 60rpx;height: 60rpx;"/>
+        <view slot="title">
+          {{item.name}}
+          <text style="padding-left: 10rpx;font-size: 28rpx;color: red;">-1</text>
+        </view>
+        <wxs src="/utils/format.wxs" module="filter"/>
+        <view slot="label">
+          {{filter.formatTime1(item.updateTime)}}
+        </view>
+        <button class="use-btn" bindtap="onDelete" data-cardid="{{item.id}}">
+          删除
+        </button>
+      </van-cell> 
+    </van-cell-group>
+  </van-tab>
+</van-tabs>
+</view>
